@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://ntu-rpl.github.io/al-folio/sitemap.xml
+Sitemap: https://ntu-rpl.github.io/sitemap.xml

@@ -49,9 +49,9 @@ repo_trophies:
 navbar_fixed: true
 footer_fixed: true
 search_enabled: false 
-socials_in_search: true
-posts_in_search: true
-bib_search: true
+socials_in_search: false 
+posts_in_search: false 
+bib_search: false
 
 # Dimensions
 max_width: 930px
@@ -83,7 +83,7 @@ google_site_verification: # your google-site-verification ID (Google Search Cons
 bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 
 # -----------------------------------------------------------------------------
-# Newsletter
+# mewsletter
 # -----------------------------------------------------------------------------
 
 newsletter:

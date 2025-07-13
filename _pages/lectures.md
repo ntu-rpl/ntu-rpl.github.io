@@ -1,13 +1,44 @@
 ---
-layout: page
+layout: lectures
 permalink: /lectures/
 title: Lectures
-description: Materials for courses you taught. Replace this text with your description.
+description: 
 nav: true
 nav_order: 2
+
+lectures:
+  - title: Introduction
+    slides: 
+  - title: Forward and Inverse Kinematics
+    slides: 
+  - title: Motion Planning, Task and Motion Planning
+    slides: 
+  - title: Feedback Control, Optimal Control
+    slides: 
+  - title: Optimal Control
+    slides: 
+  - title: Introduction of Reinforcement Learning, Imitation Learning
+    slides: 
+  - title: Markov Decision Process, Policy Iteration and Value Iteration
+    slides: 
+  - title: Monte Carlo, Temporal Difference and Monte Carlo Tree Search
+    slides: 
+  - title: "Model-free RL: Policy Gradient, Q learning, REINFORCE, Actor Critic"
+    slides: 
+  - title: On-policy DRL (PPO), Off-policy DRL (SAC), offline RL, RL finetuning
+    slides: 
+  - title: Model-based RL
+    slides: 
+  - title: Sim2real transfer, Real2Sim2Real Learning, Adaptation
+    slides: 
+  - title: Intelligent exploration, Visual Imitation Learning
+    slides: 
+  - title: "Special topic: Bimanual Dexterous Manipulation"
+    slides: 
+  - title: "Special topic: Loco-manipulation"
+    slides: 
 ---
 
-For now, this page is assumed to be a static description of your courses. You can convert it to a collection similar to `_projects/` so that you can have a dedicated page for each course.
+### Schedule
 
-Organize your courses by years, topics, or universities, however you like!
-
+We will have in-person lectures at `TBD` am every `TBD`.  After the lecture, the recording will be uploaded to NTU COOL while materials will be made available here.

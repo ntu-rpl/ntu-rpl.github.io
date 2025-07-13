@@ -1,0 +1,38 @@
+---
+layout: page
+---
+<div class="post">
+  <table>
+    <thead>
+    <tr>
+    <th>Lecture</th>
+    <th>Date</th>
+    <th>Topics</th>
+    <th>Materials</th>
+    </tr>
+</thead>
+    <tbody>
+    {% if page.lectures %}
+      {% for lecture in page.lectures%}
+        <tr>
+        <td>{{ forloop.index }}</td>
+        {% if lecture.date %}
+            {% assign lecture_date = '{{ lecture.date }}' %}
+        {% else %}
+            {% assign lecture_date = 'TBD' %}
+        {% endif %}
+        <td>{{ lecture_date}}</td>
+        <td>{{ lecture.title }}</td>
+        {% if lecture.slides %}
+          {% assign slide_path = lecture.slides | prepend: 'assets/pdf/' %}
+          <td><a href=slide_path>slides</a></td>
+        {% else %}
+          <td><a href="">TBD</a></td>
+        {% endif %}
+        </tr>
+      {% endfor %}
+    {% endif %}
+    </tbody>
+  </table>
+</div>
+

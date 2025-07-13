@@ -207,12 +207,36 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
+.profile-three-col {
+  width: 30%;
+
+  .more-info {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    font-family: monospace;
+
+    p {
+      display: inline-block;
+      margin: 0;
+      font-size: 15px;
+    }
+  }
+}
+
 .profile.float-right {
   margin-left: 1rem;
 }
 
+.profile-three-col.float-right {
+  margin-left: 3%;
+}
+
 .profile.float-left {
   margin-right: 1rem;
+}
+
+.profile-three-col.float-left {
+  margin-right: 3%;
 }
 
 @media (min-width: 576px) {

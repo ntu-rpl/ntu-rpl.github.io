@@ -1,6 +1,6 @@
 ---
 layout: about
-title: 2026 RPL
+title: Home
 logo: ntu-logo.png
 permalink: /
 subtitle: CSIE5117 • Fall 2026 • National Taiwan University

@@ -3,23 +3,23 @@
 This repo is the **course website for CSIE5117 Robot Perception and Learning**
 at National Taiwan University, published at <https://ntu-rpl.github.io>.
 
-It is a *site built from* [al-folio](https://github.com/alshedivat/al-folio) v1.2,
+It is a _site built from_ [al-folio](https://github.com/alshedivat/al-folio) v1.2,
 **not** the al-folio starter itself. That distinction changes the rules — see
 "Local overrides" below.
 
 ## Route your change
 
-| Your change                                          | Goes in                                                        |
-| ---------------------------------------------------- | -------------------------------------------------------------- |
-| Lecture schedule, dates, slide links                 | `_data/lectures/<year>.yml`                                    |
-| Lecture slides (PDFs)                                | `assets/pdf/<year>/`                                           |
-| Grading, policies, resources                         | `_pages/logistics.md`                                          |
-| Announcements                                        | `_pages/announcements.md`                                      |
-| Staff list and photos                                | `_pages/instructors.md`, `assets/img/`                         |
-| Landing-page copy, course description                | `_pages/about.md`                                              |
-| Site title, URL, feature flags, plugin activation    | `_config.yml` (**and** `Gemfile` for plugins — see below)      |
-| How the schedule table renders                       | `_includes/lecture_table.liquid`, `_layouts/lectures.liquid`   |
-| Any other layout / include / style                   | **stop** — read "Local overrides" first                        |
+| Your change                                       | Goes in                                                      |
+| ------------------------------------------------- | ------------------------------------------------------------ |
+| Lecture schedule, dates, slide links              | `_data/lectures/<year>.yml`                                  |
+| Lecture slides (PDFs)                             | `assets/pdf/<year>/`                                         |
+| Grading, policies, resources                      | `_pages/logistics.md`                                        |
+| Announcements                                     | `_pages/announcements.md`                                    |
+| Staff list and photos                             | `_pages/instructors.md`, `assets/img/`                       |
+| Landing-page copy, course description             | `_pages/about.md`                                            |
+| Site title, URL, feature flags, plugin activation | `_config.yml` (**and** `Gemfile` for plugins — see below)    |
+| How the schedule table renders                    | `_includes/lecture_table.liquid`, `_layouts/lectures.liquid` |
+| Any other layout / include / style                | **stop** — read "Local overrides" first                      |
 
 ## Three silent failure modes
 
@@ -27,8 +27,8 @@ These produce no build error. They are inherited from al-folio v1.x and are
 documented in full in [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 
 1. **A feature needs both its gem and its flag.** Runtime lives in gems. A
-   feature renders only when the gem is active *and* the `_config.yml` flag is
-   on *and* the page's front matter opts in. Otherwise the tag emits an empty
+   feature renders only when the gem is active _and_ the `_config.yml` flag is
+   on _and_ the page's front matter opts in. Otherwise the tag emits an empty
    string — no warning, no placeholder.
 2. **`Gemfile` and `_config.yml` are two lists that must agree.** Adding or
    removing a plugin means editing `group :al_folio_plugins` in the `Gemfile`

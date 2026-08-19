@@ -1,0 +1,49 @@
+# Lecture schedule for the 2025 offering.
+#
+# Each entry supports:
+#   title:  topic shown in the table (required)
+#   date:   YYYY/M/D; omit for TBD
+#   slides: file name under assets/pdf/2025/, or a full https:// URL;
+#           omit for TBD
+- title: Introduction
+  date: 2025/9/3
+  slides: lecture0_intro.pdf
+- title: Robot Kinematics
+  date: 2025/9/10
+  slides: lecture1_robot_kinematics.pdf
+- title: Motion Planning, Task and Motion Planning
+  date: 2025/9/17
+  slides: lecture2_task_and_motion_planning.pdf
+- title: Kinodynamic Motion planning, Trajectory Generation, Feedback Control
+  date: 2025/9/24
+  slides: lecture3_feedback_control.pdf
+- title: Optimal Control
+  date: 2025/10/1
+  slides: lecture4_optimal_control.pdf
+- title: Imitation Learning
+  date: 2025/10/8
+  slides: lecture5_imitation_learning.pdf
+- title: Introduction of Reinforcement Learning, Markov Decision Process, Policy Iteration and Value Iteration
+  date: 2025/10/15
+  slides: lecture6_bandit_mdp.pdf
+- title: Monte Carlo, Temporal Difference and Monte Carlo Tree Search
+  date: 2025/10/22
+  slides: lecture7_montecarlo_sampling_and_temporal_difference.pdf
+- title: "Model-free RL: Q learning, Policy Gradient"
+  date: 2025/10/29
+  slides: lecture8_deep_rl.pdf
+- title: Advanced Policy Gradient, Challenges of Real-world RL
+  date: 2025/11/5
+  slides: lecture9_deep_rl-2.pdf
+- title: Model-based RL
+  date: 2025/11/19
+  slides: lecture10_model_based_rl.pdf
+- title: Intelligent exploration, Visual Imitation Learning
+  date: 2025/11/26
+  slides: lecture11_exploration_visual_imitation_learning.pdf
+- title: Sim2real transfer, Real2Sim2Real Learning, Adaptation
+  date: 2025/12/3
+  slides: lecture12_sim2real_transfer_adaptation.pdf
+- title: "Special topic: Bimanual Dexterous Manipulation and Mobile Manipulation"
+  date: 2025/12/10
+  slides: lecture13_humanoid.pdf

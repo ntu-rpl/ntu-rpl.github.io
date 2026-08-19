@@ -1,0 +1,126 @@
+// Site-specific styles for the NTU RPL course site.
+//
+// Loaded last from the local override of assets/css/main.scss, so these rules
+// win over both the gem's Tailwind build and its own Sass partials.
+//
+// Everything here exists to match the sibling course site
+// https://ntu-ev.github.io/, which runs the pre-v1 (Bootstrap) al-folio. The
+// v1 Tailwind build dropped a few Bootstrap Reboot rules that site relies on.
+
+// ---------------------------------------------------------------------------
+// Nested list spacing
+// ---------------------------------------------------------------------------
+// Bootstrap Reboot zeroes the bottom margin on nested lists; the v1 Tailwind
+// build does not, so every nested list added an extra 1rem gap. Most visible
+// in the Logistics table of contents, where sub-items pushed the following
+// numbered item down by a full line.
+ol ol,
+ol ul,
+ul ol,
+ul ul {
+  margin-bottom: 0;
+}
+
+// No heading font-weight rule here on purpose. Bootstrap Reboot sets 500, but
+// ntu-ev.github.io also loads MDBootstrap *after* Bootstrap, which resets
+// `h1..h6` to 300 — so the sibling site's effective weight is 300, exactly what
+// the v1 Tailwind build already ships. Both sites resolve to Roboto 300.
+
+// ---------------------------------------------------------------------------
+// About-page logo  (_layouts/about.liquid)
+// ---------------------------------------------------------------------------
+// Geometry copied from ntu-ev.github.io, which sets it inline on the <img>:
+//   float: left; margin-right: 20px; height: 100px;
+// Sizing by HEIGHT (not width) is what keeps the mark aligned with the title
+// block regardless of the source image's aspect ratio. The float is left
+// uncleared so body copy wraps around it, as on the sibling site.
+.post-header .logo {
+  float: left;
+  margin-right: 20px;
+
+  img {
+    display: block;
+    height: 100px;
+    width: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .post-header .logo {
+    margin-right: 15px;
+
+    img {
+      height: 72px;
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Instructor grid  (_layouts/profiles.liquid)
+// ---------------------------------------------------------------------------
+// Ported from ntu-ev.github.io: three floated cells at 30% with a 3% gutter,
+// monospace captions tight under each photo.
+.profile-three-col {
+  width: 30%;
+
+  &.float-left {
+    margin-right: 3%;
+  }
+
+  // Reset the gem's figure margins so captions sit directly under the photo.
+  figure {
+    margin: 0;
+  }
+
+  // Pin every portrait to one aspect ratio so the photos render at identical
+  // heights and the captions below them share a baseline. ntu-ev.github.io
+  // gets this for free because all of its staff photos happen to be 222x260;
+  // ours are not (prof_ta_csw.png is 1024x1228), which knocked one caption
+  // ~7px lower than its neighbours. 222/260 keeps the shape identical to the
+  // sibling site — change to `1 / 1` if you want true circles instead.
+  img {
+    aspect-ratio: 222 / 260;
+    object-fit: cover;
+  }
+
+  .more-info {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-family: monospace;
+
+    p {
+      display: inline-block;
+      margin: 0;
+      font-size: 15px;
+    }
+  }
+}
+
+// Floated cells wrap into rows of three; this keeps rows from colliding when
+// captions differ in height, which pure floats do not handle on their own.
+.profile-three-col:nth-of-type(3n + 1) {
+  clear: left;
+}
+
+// Breathing room between rows.
+.profile-three-col {
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 576px) {
+  .profile-three-col {
+    width: 47%;
+
+    &.float-left {
+      margin-right: 6%;
+    }
+  }
+
+  .profile-three-col:nth-of-type(3n + 1) {
+    clear: none;
+  }
+
+  .profile-three-col:nth-of-type(2n + 1) {
+    clear: left;
+  }
+}

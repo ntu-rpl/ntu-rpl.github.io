@@ -1,0 +1,45 @@
+---
+layout: page
+---
+{%- comment -%}
+  LOCAL OVERRIDE of al_folio_core's _layouts/profiles.liquid.
+
+  Renders staff as a three-column grid matching the sibling course site
+  https://ntu-ev.github.io/instructors/ instead of the gem's default
+  one-per-row list. Three changes from the gem's copy:
+    - `.profile` -> `.profile-three-col` (grid cell; styles in _sass/_rpl.scss)
+    - the per-profile `<hr>` separator is dropped
+    - the per-profile content block becomes a single trailing clearfix, so the
+      floated cells do not overlap the footer
+
+  `page.content` is intentionally not rendered per profile: the gem repeated it
+  under every entry. Styles live in _sass/_rpl.scss.
+
+  After bumping al_folio_core, re-diff with:
+    bundle exec al-folio upgrade overrides diff _layouts/profiles.liquid
+{%- endcomment -%}
+<div class="post">
+  <article>
+    {% if page.profiles %}
+      {% for profile in page.profiles %}
+        <div class="profile-three-col float-{% if profile.align == 'left' %}left{% else %}right{% endif %}">
+          {% if profile.image %}
+            {% assign profile_image_path = profile.image | prepend: 'assets/img/' %}
+            {% if profile.image_circular %}
+              {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
+            {% else %}
+              {% assign profile_image_class = 'img-fluid z-depth-1 rounded' %}
+            {% endif %}
+            {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px) 30vw, 95vw"{% endcapture %}
+            {% include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=profile.image %}
+          {% endif %}
+          {% if profile.more_info %}
+            <div class="more-info">{{ profile.more_info }}</div>
+          {% endif %}
+        </div>
+
+      {% endfor %}
+      <div class="clearfix"></div>
+    {% endif %}
+  </article>
+</div>

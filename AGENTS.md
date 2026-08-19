@@ -1,91 +1,87 @@
-# Agent Guidelines for al-folio (v1.x)
+# Agent Guidelines — NTU RPL course site
 
-**This file is the authoritative entry point for coding agents working in this repo.** Read it before making any change. It is intentionally short and tool-neutral; it links to the one place each longer-form fact lives.
+This repo is the **course website for CSIE5117 Robot Perception and Learning**
+at National Taiwan University, published at <https://ntu-rpl.github.io>.
 
-`al-folio` v1.x is a **thin Jekyll starter, not a theme**. This repo owns starter wiring, example content, docs, and cross-plugin tests. All runtime — layouts, includes, Sass, Liquid tags, filters, feature JS — lives in versioned gems published under [`al-org-dev`](https://github.com/al-org-dev).
+It is a *site built from* [al-folio](https://github.com/alshedivat/al-folio) v1.2,
+**not** the al-folio starter itself. That distinction changes the rules — see
+"Local overrides" below.
 
 ## Route your change
 
-Find your change on the left; edit only what is on the right.
+| Your change                                          | Goes in                                                        |
+| ---------------------------------------------------- | -------------------------------------------------------------- |
+| Lecture schedule, dates, slide links                 | `_data/lectures/<year>.yml`                                    |
+| Lecture slides (PDFs)                                | `assets/pdf/<year>/`                                           |
+| Grading, policies, resources                         | `_pages/logistics.md`                                          |
+| Announcements                                        | `_pages/announcements.md`                                      |
+| Staff list and photos                                | `_pages/instructors.md`, `assets/img/`                         |
+| Landing-page copy, course description                | `_pages/about.md`                                              |
+| Site title, URL, feature flags, plugin activation    | `_config.yml` (**and** `Gemfile` for plugins — see below)      |
+| How the schedule table renders                       | `_includes/lecture_table.liquid`, `_layouts/lectures.liquid`   |
+| Any other layout / include / style                   | **stop** — read "Local overrides" first                        |
 
-| Your change                                                                                                              | Goes in                                                                                                       |
-| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
-| Dependency pin, plugin activation, feature flag                                                                          | this repo: `Gemfile` **and** `_config.yml` (both — see below)                                                 |
-| Example/demo content, bibliography, data files                                                                           | this repo: `_pages`, `_posts`, `_projects`, `_news`, `_teachings`, `_books`, `_data`                          |
-| Documentation                                                                                                            | this repo: `docs/` (long-form) or this file (agent rules)                                                     |
-| Cross-plugin integration test, visual parity test                                                                        | this repo: `test/integration_*.sh`, `test/visual/`                                                            |
-| Plugin catalog metadata                                                                                                  | this repo: `_data/featured_plugins.yml`                                                                       |
-| A layout, include, or Sass partial                                                                                       | the owning gem — start with `al_folio_core`                                                                   |
-| A Liquid tag or filter, or what a tag renders                                                                            | the gem that registers it — see the [delegation table](docs/ARCHITECTURE.md#wrapper-to-tag-to-gem-delegation) |
-| Feature behavior (search, math, charts, comments, cookies, icons, CV, distill, analytics, images, newsletter, citations) | that feature's gem — see [`docs/BOUNDARIES.md`](docs/BOUNDARIES.md)                                           |
-| Component/unit test for gem-owned behavior                                                                               | the owning gem, not here                                                                                      |
-| A feature with no existing owner                                                                                         | open a plugin proposal issue first, then a standalone plugin repo                                             |
+## Three silent failure modes
 
-[`docs/BOUNDARIES.md`](docs/BOUNDARIES.md) is the authoritative area-to-gem table. [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) explains how the pieces connect.
+These produce no build error. They are inherited from al-folio v1.x and are
+documented in full in [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 
-## Stop sign
+1. **A feature needs both its gem and its flag.** Runtime lives in gems. A
+   feature renders only when the gem is active *and* the `_config.yml` flag is
+   on *and* the page's front matter opts in. Otherwise the tag emits an empty
+   string — no warning, no placeholder.
+2. **`Gemfile` and `_config.yml` are two lists that must agree.** Adding or
+   removing a plugin means editing `group :al_folio_plugins` in the `Gemfile`
+   **and** the `plugins:` list in `_config.yml`. A gem in only one is inert.
+   Note the spelling: gem ids use underscores (`al_folio_core`).
+3. **`baseurl` must stay empty.** This is an organization page
+   (`ntu-rpl.github.io`), so `baseurl:` is present but blank. Upstream al-folio
+   docs and its own `CLAUDE.md` say to build with `--baseurl /al-folio` — that
+   is correct for the al-folio demo site and **wrong here**. Setting it breaks
+   every asset and internal link.
 
-**If your change would create any of these paths in this repo, it belongs in a gem instead:**
+## Local overrides
 
-```
-_layouts/   _includes/   _sass/   _scripts/   assets/tailwind/   tailwind.config.js   assets/webfonts/
-```
+Runtime (layouts, includes, Sass, feature JS) is owned by gems pinned in the
+`Gemfile`. **In this repo — a user site — shadowing a gem-owned file by adding
+the same path locally is fully supported**, and `_layouts/lectures.liquid` and
+`_includes/lecture_table.liquid` do exactly that.
 
-`npm run lint:style-contract` fails CI when any of them exists here, and it also rejects `build:css` / `build:tailwind` npm scripts. Do not add a starter-local Tailwind or CSS build pipeline.
+This is the opposite of the rule in the al-folio starter repo, where those
+directories must not exist. Do not apply upstream's "never edit runtime here"
+guidance to this repo.
 
-This restriction applies to **this repo only**. A user's own site created from this template _may_ legally shadow gem-owned files — see [local overrides: your site vs. this repo](docs/ARCHITECTURE.md#local-overrides-your-site-vs-this-repo).
-
-## Three failures that produce no error message
-
-Read [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md#failure-modes-that-produce-no-error-message) for the full explanation. The short version:
-
-1. **Features fail silently.** A feature renders only when its gem is loaded _and_ its flag is on _and_ the page opts in. Otherwise the Liquid tag emits an empty string — no warning, no error.
-2. **`Gemfile` and `_config.yml` are two lists that must agree.** A plugin in only one of them is inert. Adding or removing a plugin means editing both. Repo dirs use hyphens (`al-folio-core`); gem/plugin ids use underscores (`al_folio_core`).
-3. **This repo's effective baseurl is `/al-folio`.** `_config.yml` already sets it, so a plain `bundle exec jekyll build` is correct — that is what `deploy.yml`, `broken-links-site.yml` and `axe.yml` run. Passing `--baseurl /al-folio` is redundant but harmless; blanking the baseurl out is what renders the site unstyled with broken links. Dev server is at `http://localhost:4000/al-folio/`.
-
-## Validated local command set
-
-Run from the repo root, in this order:
+Prefer configuration over an override. When you do add one, track it:
 
 ```bash
-bundle install
-npm ci
-npm run lint:prettier
-npm run lint:style-contract
-bundle exec jekyll build --baseurl /al-folio
-bash test/integration_comments.sh
-bash test/integration_plugin_toggles.sh
-bash test/integration_distill.sh
-bash test/integration_bootstrap_compat.sh
-bash test/integration_upgrade_cli.sh
-bash test/integration_css_minify.sh
-bash test/integration_new_plugins.sh
-npx playwright install chromium webkit
-npm run test:visual
-bundle exec al-folio upgrade audit
-bundle exec al-folio upgrade overrides audit
-bundle exec al-folio upgrade report
-docker compose up -d
-curl -fsS http://127.0.0.1:8080/al-folio/ >/dev/null
-docker compose logs --tail=80
-docker compose down
+bundle exec al-folio upgrade overrides audit          # records gem + version + hashes
+bundle exec al-folio upgrade overrides diff <path>    # review drift after a gem bump
+bundle exec al-folio upgrade overrides accept <path>  # acknowledge reviewed drift
 ```
 
-All seven `test/integration_*.sh` scripts are gated by `unit-tests.yml`; run the ones your change touches. Docker note: v1 uses `/srv/jekyll/bin/entry_point.sh` and serves from container-local `/tmp/_site` to avoid host bind-mount write deadlocks.
+Commit the resulting `.al-folio-overrides.yml`.
 
-## Before you open a PR
+## Command set
 
-- Keep starter work here; route runtime behavior to the owning plugin repo.
-- Run `npm run lint:prettier` (Prettier with `@shopify/prettier-plugin-liquid`, `printWidth: 150`). `npx prettier . --write` fixes formatting.
-- Keep docs aligned with v1 ownership, and keep each fact in one place — link rather than restate.
-- If you create or keep local overrides of plugin-owned files, run `bundle exec al-folio upgrade overrides audit` and commit `.al-folio-overrides.yml` after review.
+```bash
+bundle install                  # ruby 3.3.5, pinned in .ruby-version
+npm ci                          # prettier only
+bundle exec jekyll serve        # http://localhost:4000  (no baseurl path)
+bundle exec jekyll build        # production build to _site/
+bundle exec al-folio upgrade audit   # blocking findings on the v1 config contract
+npx prettier . --check          # CI runs this via prettier-comment-on-pr.yml
+```
 
-## Further reading
+Do not remove the `al_folio.*` contract keys from `_config.yml`
+(`api_version`, `style_engine`, `tailwind.*`, `distill.*`) — the audit blocks on them.
 
-- [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) — how the starter and gems fit together, silent failure modes, the v1 config contract, local overrides.
-- [`docs/BOUNDARIES.md`](docs/BOUNDARIES.md) — authoritative area-to-gem ownership table and PR triage playbook.
-- [`docs/CONTRIBUTING.md`](docs/CONTRIBUTING.md) — contributor workflow and agent tooling.
-- [`docs/README.md`](docs/README.md) — index of all user and maintainer guides.
-- `.agents/skills/al-folio-bootstrap/SKILL.md` — new-site setup workflow.
-- `.agents/skills/al-folio-v1-migration/SKILL.md` — customized-fork migration and override drift auditing.
-- `.codex/skills` and `.claude/skills` are symlinks to `.agents/skills` for agent-specific discovery.
+## Upstream
+
+The `upstream` remote tracks al-folio. Release notes live in `docs/releases/`.
+Upgrading means bumping pins in the `Gemfile` and `_config.yml` together, then
+running `bundle install && bundle exec al-folio upgrade audit`. `bundle update`
+alone does nothing — the pins are exact.
+
+`docs/` is upstream reference documentation, kept for `ARCHITECTURE.md`,
+`BOUNDARIES.md`, `CUSTOMIZE.md`, and `FAQ.md`. It describes the starter, so read
+it with the override rule above in mind.

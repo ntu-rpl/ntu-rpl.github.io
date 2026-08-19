@@ -1,0 +1,23 @@
+---
+layout: page
+---
+{% comment %}
+  Lecture schedule layout, driven by _data/lectures/<year>.yml.
+
+  Set `year: "2026"` in the page front matter for a single offering, or
+  `years: ["2025", "2024"]` for an archive page listing several offerings,
+  each under its own heading, in the order given.
+{% endcomment %}
+
+<div class="post">
+  {{ content }}
+
+  {% if page.year %}
+    {% include lecture_table.liquid year=page.year %}
+  {% endif %}
+
+  {% for archived_year in page.years %}
+    <h3 id="{{ archived_year }}">{{ archived_year }}</h3>
+    {% include lecture_table.liquid year=archived_year %}
+  {% endfor %}
+</div>

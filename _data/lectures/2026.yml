@@ -1,0 +1,55 @@
+# Lecture schedule for the 2026 offering.
+#
+# Starting point: the 2025 topic list carried forward, with dates and slides
+# cleared. Edit the topics, fill in `date:` as the semester schedule is fixed,
+# and add `slides:` (a file name under assets/pdf/2026/) as each deck is ready.
+# Entries without a date or slides render as "TBD".
+#
+# Each entry supports:
+#   title:  topic shown in the table (required)
+#   date:   YYYY/M/D; omit for TBD
+#   slides: file name under assets/pdf/2026/, or a full https:// URL;
+#           omit for TBD
+- title: Introduction
+  date: 2026/9/7
+  slides: 
+- title: Robot Kinematics, Motion Planning
+  date: 2026/9/14
+  slides: 
+- title: Motion Planning, Feedback Control
+  date: 2026/9/21
+  slides: 
+- title: Optimal Control, Force / Positional / Impedance Control
+  date: 2026/10/5
+  slides: 
+- title: Imitation Learning
+  date: 2026/10/12
+  slides: 
+- title: Introduction of Reinforcement Learning, Markov Decision Process, Policy Iteration and Value Iteration
+  date: 2026/10/19
+  slides: 
+- title: Monte Carlo, Temporal Difference and Monte Carlo Tree Search
+  date: 2026/10/27
+  slides: 
+- title: "Model-free RL: Q learning, Policy Gradient"
+  date: 2026/11/2
+  slides: 
+- title: Advanced Policy Gradient, Challenges of Real-world RL
+  date: 2026/11/9
+  slides: 
+- title: Offline RL, Model-based RL
+  date: 2026/11/16
+  slides: 
+- title: Zero-shot RL, Intelligent exploration
+  date: 2026/11/23
+  slides: 
+- title: Visual Imitation Learning, Inverse RL, Reward Learning
+  date: 2026/11/30
+  slides: 
+- title: Sim2real transfer, Real2Sim2Real Learning, Adaptation
+  date: 2026/12/14
+  slides: 
+- title: "Special topic: Bimanual Dexterous Manipulation and Mobile Manipulation"
+  date: 2026/12/21
+  slides: 
+

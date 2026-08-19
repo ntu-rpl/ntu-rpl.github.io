@@ -1,0 +1,52 @@
+{% comment %}
+  Renders the lecture schedule table for one offering.
+
+  Usage: {% include lecture_table.liquid year="2025" %}
+
+  Reads _data/lectures/<year>.yml. Slide file names are resolved against
+  assets/pdf/<year>/; entries whose `slides` value contains "://" are linked
+  as-is so past years can point at externally hosted decks.
+{% endcomment %}
+
+{% assign lectures = site.data.lectures[include.year] %}
+
+{% if lectures %}
+  <table>
+    <thead>
+      <tr>
+        <th>Lecture</th>
+        <th>Date</th>
+        <th>Topics</th>
+        <th>Materials</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for lecture in lectures %}
+        <tr>
+          <td>{{ forloop.index }}</td>
+          <td>
+            {%- if lecture.date -%}
+              {{ lecture.date }}
+            {%- else -%}
+              TBD
+            {%- endif -%}
+          </td>
+          <td>{{ lecture.title }}</td>
+          <td>
+            {%- if lecture.slides -%}
+              {%- if lecture.slides contains '://' -%}
+                {%- assign slide_path = lecture.slides -%}
+              {%- else -%}
+                {%- capture slide_file %}assets/pdf/{{ include.year }}/{{ lecture.slides }}{% endcapture -%}
+                {%- assign slide_path = slide_file | relative_url -%}
+              {%- endif -%}
+              <a href="{{ slide_path }}">slides</a>
+            {%- else -%}
+              TBD
+            {%- endif -%}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endif %}

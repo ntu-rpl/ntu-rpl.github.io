@@ -10,7 +10,7 @@ Read it before editing.
 
 ## What this repo is
 
-The NTU CSIE5117 Robot Perception and Learning course site — a site *built from*
+The NTU CSIE5117 Robot Perception and Learning course site — a site _built from_
 al-folio v1.2, not the al-folio starter. Upstream's own agent docs in `docs/`
 are written for the starter repo and get two things backwards here:
 

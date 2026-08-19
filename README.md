@@ -4,7 +4,7 @@ Course website for **CSIE5117 Robot Perception and Learning** at National Taiwan
 University, published at <https://ntu-rpl.github.io>.
 
 Built with [al-folio](https://github.com/alshedivat/al-folio) v1.2. In v1.x
-al-folio is a *thin starter*: layouts, includes, styles and feature JS live in
+al-folio is a _thin starter_: layouts, includes, styles and feature JS live in
 versioned gems (`al_folio_core` and friends, pinned in the `Gemfile`), not in
 this repo. See `docs/ARCHITECTURE.md` before changing anything that looks like
 theme code.
@@ -27,8 +27,8 @@ bundle exec jekyll serve   # http://localhost:4000
 **Lecture schedule** lives in `_data/lectures/<year>.yml`. Each entry:
 
 ```yaml
-- title: Introduction        # shown in the schedule table (required)
-  date: 2026/9/7             # YYYY/M/D; omit to render "TBD"
+- title: Introduction # shown in the schedule table (required)
+  date: 2026/9/7 # YYYY/M/D; omit to render "TBD"
   slides: lecture0_intro.pdf # file under assets/pdf/<year>/, or a full https:// URL
 ```
 

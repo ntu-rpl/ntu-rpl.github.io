@@ -24,6 +24,7 @@ This course provides a technical overview of decision making and action control 
 Starting from 2026, we introduce hands-on contents into the course: in addition to implementing algorithms in simulation, students will build a real inverted pendulum from scratch. In each of the two/three assignments, students will implement control programs or train robot policies, testing them on the pendulum robot. We will provide 3D-printed robot bodies, and required electronic components & motors. Students have to assemble the robot themselves.
 
 Note: The perceptual components of robot systems will be discussed in the course of Embodied Vision (CSIE5421). 
+Note: Submit the [form](https://forms.gle/rQdoweAm6TXJxvry5) for enrolling the course.
 
 ---
 
@@ -69,3 +70,4 @@ Grading in this course heavily depends on the final project. You should prepare 
 - Lecture Location: CSIE Building Room 104
 - Discussion: Discord
 - HW submission: Github classroom
+- Course enrollment: Submit the [form](https://forms.gle/rQdoweAm6TXJxvry5)

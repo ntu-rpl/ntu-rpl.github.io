@@ -68,7 +68,7 @@ This class requirements include 2 homework assignments (30% of the grade), a fin
 
 For the first assignment, students need to team up to (1) assemble a real inverted pendulum robot, (2) implementing a simple PID controller, (3) implementing LQR, iLQR and MPC controllers, (4) train RL controllers such as DQN, PPO and SAC.  All controllers will be implemented and tested in simulation, then deployed directly in the real world.  Therefore, system identification is needed to bridge the sim-real gap.
 
-For the second assignment, students need to work individually on in-hand orientation in simulation.  Students will have to (1) set up the simulator environment, (2) train RL policies for basic in-hand orientation, (3) enhance the policy's OOD generation to novel objects, unseen physical properties and unexpected environmental perturbatyions.
+For the second assignment, students need to work individually on in-hand orientation in simulation.  Students will have to (1) set up the simulator environment, (2) train RL policies for basic in-hand orientation, (3) enhance the policy's OOD generation to novel objects, unseen physical properties and unexpected environmental perturbations.
 
 #### Late Policy of Homework Assignments
 

@@ -62,7 +62,13 @@ Discord is intended for all announcements, general questions about the course, c
 
 ### Grading
 
-This class requirements include 3 homework assignments (30% of the grade), a final project presentation and participation (70% of the grade) . Each assignment takes 10% of the grade. Every student should work on the assignments individually. The requirements of the final project include a project proposal presentation (10% of the grade), two milestone reports (2 * 10% of the grade), a rehearsal oral presentation (10% of the grade) and a poster presentation (30% of the grade). **In-person participation of these presentations are required.**
+This class requirements include 2 homework assignments (30% of the grade), a final project presentation and participation (70% of the grade).  Each assignment takes 15% of the grade.  The requirements of the final project include a project proposal presentation (10% of the grade), in-person meeting with the instructor (2 * 10% of the grade), and a poster presentation (40% of the grade). **In-person participation of these presentations are required.**
+
+#### Assignments
+
+For the first assignment, students need to team up to (1) assemble a real inverted pendulum robot, (2) implementing a simple PID controller, (3) implementing LQR, iLQR and MPC controllers, (4) train RL controllers such as DQN, PPO and SAC.  All controllers will be implemented and tested in simulation, then deployed directly in the real world.  Therefore, system identification is needed to bridge the sim-real gap.
+
+For the second assignment, students need to work individually on in-hand orientation in simulation.  Students will have to (1) set up the simulator environment, (2) train RL policies for basic in-hand orientation, (3) enhance the policy's OOD generation to novel objects, unseen physical properties and unexpected environmental perturbatyions.
 
 #### Late Policy of Homework Assignments
 

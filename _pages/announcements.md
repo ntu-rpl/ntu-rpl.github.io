@@ -9,7 +9,7 @@ nav_order: 4
 
 #### 2026/08/04 Application for course enrollment
 
-You can fill in this [google form](https://forms.gle/rQdoweAm6TXJxvry5) to apply for extra enrollment.
+You can fill in this [google form](https://forms.gle/rQdoweAm6TXJxvry5) to apply for enrollment.
 
 #### 2026/08/04 This course doesn’t allow auditing
 

@@ -30,13 +30,13 @@ profiles:
     more_info: >
       <p>TA: Hsin-Wei Chen </p>
   - align: left
-    image: 
+    image: ta_jyc.png
     content:
     image_circular: true # crops the image to make it circular
     more_info: >
       <p>TA: Jyun-Yang Cheng</p>
   - align: left
-    image: 
+    image: ta_lxp.jpg
     content:
     image_circular: true # crops the image to make it circular
     more_info: >

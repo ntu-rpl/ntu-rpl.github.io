@@ -12,7 +12,7 @@
 #           omit for TBD
 - title: Introduction
   date: 2026/9/7
-  slides: 
+  slides: lecture0_intro.pdf
 - title: Robot Kinematics, Motion Planning
   date: 2026/9/14
   slides: 

@@ -16,6 +16,8 @@
 - title: Robot Kinematics, Motion Planning
   date: 2026/9/14
   slides: 
+    - lecture1_robot_kinematics.pdf
+    - lecture1_motion_planning.pdf
 - title: Motion Planning, Feedback Control (PID)
   date: 2026/9/21
   slides: 

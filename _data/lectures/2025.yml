@@ -4,7 +4,12 @@
 #   title:  topic shown in the table (required)
 #   date:   YYYY/M/D; omit for TBD
 #   slides: file name under assets/pdf/2025/, or a full https:// URL;
-#           omit for TBD
+#           omit for TBD. For more than one deck in a week, give a list;
+#           links are labelled "slides 1", "slides 2" unless a label is set:
+#             slides:
+#               - lecture1_kinematics.pdf
+#               - file: lecture1_motion_planning.pdf
+#                 label: motion planning
 - title: Introduction
   date: 2025/9/3
   slides: lecture0_intro.pdf

@@ -98,7 +98,7 @@ You are allowed to use AIs at your own risk. You are responsible for refactoring
 
 ### Final Project Presentations
 
-You can form a team of 3-4 members. If you really want to work alone, come and chat with us.
+You can form a team of 4-5 members. If you really want to work alone, come and chat with us.
 
 You will submit a proposal, describing the topic, experimental setup, todos and expected contribution of each member for the final project.
 

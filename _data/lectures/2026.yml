@@ -20,7 +20,7 @@
     - lecture1_motion_planning.pdf
 - title: Motion Planning, Feedback Control (PID)
   date: 2026/9/21
-  slides: 
+  slides:  lecture3_feedback_control.pdf
 - title: Feedback Control (Impedance / Admittance Control), Optimal Control
   date: 2026/10/5
   slides: 

@@ -26,10 +26,12 @@
   slides: lecture4_optimal_control.pdf
 - title: Imitation Learning
   date: 2026/10/12
-  slides: 
+  slides: lecture5_imitation_learning.pdf
 - title: Introduction of Reinforcement Learning, Dynamic Programming, Monte Carlo, Temporal Difference
   date: 2026/10/19
   slides: 
+    - lecture6_tabular_rl.pdf
+    - lecture6_tabular_rl_appendix.pdf
 - title: Deep RL (Q learning, Policy Gradient)
   date: 2026/10/27
   slides: 

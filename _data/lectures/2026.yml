@@ -35,9 +35,9 @@
 - title: Deep RL (Q learning, Policy Gradient)
   date: 2026/10/27
   slides:  lecture7_deep_rl.pdf
-- title: Offline RL, Challenges of Real-world RL
+- title: Challenges of Real-world RL
   date: 2026/11/2
-  slides: 
+  slides: lecture8_realworld_rl.pdf
 - title: Model-based RL
   date: 2026/11/9
   slides: 

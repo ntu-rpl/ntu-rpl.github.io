@@ -40,7 +40,7 @@ on:
 
 jobs:
   link-checker:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # only run on the main repo
     if: github.repository == 'alshedivat/al-folio'
     steps:

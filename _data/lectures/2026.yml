@@ -41,6 +41,8 @@
 - title: Model-based RL
   date: 2026/11/9
   slides: 
+    - lecture9_model_based_rl.pdf
+    - lecture9_model_based_rl_appendix.pdf
 - title: Zero-shot RL, Intelligent exploration
   date: 2026/11/16
   slides: 

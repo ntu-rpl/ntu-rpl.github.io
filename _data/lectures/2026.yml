@@ -46,6 +46,8 @@
 - title: Zero-shot RL, Intelligent exploration
   date: 2026/11/16
   slides: 
+    - lecture10_intelligent_exploration.pdf
+    - lecture11_zero_shot_rl.pdf
 - title: Visual Imitation Learning, Inverse RL, Reward Learning
   date: 2026/11/23
   slides: 
